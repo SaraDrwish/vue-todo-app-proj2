@@ -15,9 +15,12 @@
 
 <script setup>
 
-import { ref , onMounted } from 'vue';
+import { ref   } from 'vue';
+import todoMixn  from "../Mixens/todoMixn"
 
 // data : 
+
+const { todosList , addToLocalSt   } =  todoMixn()
 
 // const todoList = ref([]);
 
@@ -33,9 +36,9 @@ const todoObject = ref({
 // methids :
 
 const addTodo = () => {
-  todoObject.value.id = todoList.value.length + 1
+  todoObject.value.id = todosList.value.length + 1
   todoObject.value.createdAt = new Date()
-  todoList.value.push(todoObject.value)
+  todosList.value.push(todoObject.value)
   addToLocalSt();
   alert("todo added succefly ")
   todoObject.value = {
@@ -47,28 +50,6 @@ const addTodo = () => {
     isCompeleted : false
   }
 }
-
-// //set to local storg :
-
-// const addToLocalSt = () => {
-//   localStorage.setItem("todos" , JSON.stringify(todoList.value))
-// }
-
-// // update todoslist :
-
-// const updatLocalStTodos = () => {
-//   if (localStorage.getItem("todos")) {
-//     todoList.value = JSON.parse(localStorage.getItem("todos"))
-//   }
-// }
-
-// //Hooks :
-
-// onMounted(() => {
-//     updatLocalStTodos();
-// } )
  
-
-
 
 </script>
