@@ -1,7 +1,7 @@
 <template>
   <div class="show-todos flex items-center text-yellow-500 ">
     <h1>show todos</h1>
-    <table class="w-full text-green-400" v-if="todoLists.length">
+    <table class="w-full text-green-400" v-if="todosList.length">
       <thead>
         <tr>
           <th>text</th>
@@ -12,7 +12,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(todoo , index) in todoLists" :key="todoo.id"  :style="`${todoo.isCompeleted ? 'background: #b8ecd0 ' : 'background : transparent'}`" >
+        <tr v-for="(todoo , index) in todosList" :key="todoo.id"  :style="`${todoo.isCompeleted ? 'background: #b8ecd0 ' : 'background : transparent'}`" >
           <td>{{ todoo.text }}</td>
           <td>{{ todoo.from }}</td>
           <td>{{ todoo.to }}</td>
@@ -57,10 +57,18 @@ const markCompelted = (td) => {
 
 <style scoped>
 
+table{
+  margin:4% auto;
+  text-align: center;
+  width: 80%;
+}
+
 button{
-  padding: 1%;
+  padding: 2%;
   margin: 1%;
   cursor: pointer;
+  border: none;
+  display: inline-block;
 }
 .compeleted{
   background-color: rgb(95, 136, 95);
