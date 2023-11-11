@@ -18,11 +18,7 @@
 import { ref   } from 'vue';
 import todoMixn  from "../Mixens/todoMixn"
 
-// data : 
-
 const { todosList , addToLocalSt   } =  todoMixn()
-
-// const todoList = ref([]);
 
 const todoObject = ref({
   id:'',

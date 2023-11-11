@@ -36,26 +36,13 @@
 
 <script setup>
 
-import { onMounted, ref } from 'vue';
+import todoMixn from "../Mixens/todoMixn"
 
-// data : 
-const todoLists = ref([]);
-
-// Methods :
-
-//upf=date todos
-const updateTodos = () => {
-  if (localStorage.getItem("todos")) {
-    todoLists.value = JSON.parse(localStorage.getItem("todos"))
-  }
-  console.log(todoLists.value)
-}
-
+const { todosList, addToLocalSt } = todoMixn()
 
 // delete toddoo
-
 const deleteTodo = (indx) => {
-  todoLists.value.splice(indx, 1)
+  todosList.value.splice(indx, 1)
   addToLocalSt()
 }
 
@@ -65,32 +52,20 @@ const markCompelted = (td) => {
   addToLocalSt()
 }
 
-//set to local storg :
-
-const addToLocalSt = () => {
-  localStorage.setItem("todos", JSON.stringify(todoLists.value))
-}
-
-
-onMounted(
-  () => {
-    updateTodos()
-  }
-)
-
-
-
-
-
 </script>
 
 
-
 <style scoped>
+
+button{
+  padding: 1%;
+  margin: 1%;
+  cursor: pointer;
+}
 .compeleted{
-  background-color: green;
+  background-color: rgb(95, 136, 95);
 }
 .delete{
-  background-color: red;
+  background-color: rgb(155, 87, 87);
 }
 </style>
