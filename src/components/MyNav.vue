@@ -20,7 +20,7 @@ const router = useRouter();
 </script>
 
  
-<style lang="scss" scoped>
+<style  scoped>
 
 body *{
   padding: 0;
@@ -42,9 +42,9 @@ a{
   text-decoration: none;
   display: flex;
   color: unset;
-  &.router-link-active{
+  /* &.router-link-active{
    color: rgb(147, 52, 52);
-  }
+  } */
 }
 li{
   color: rgb(74, 172, 163);

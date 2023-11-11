@@ -8,7 +8,7 @@
       <input  v-model="todoObject.to" type="date" name="to" id="" required >
       <br>
       <br>
-      <input type="button" value="add"  required >
+      <input type="button" value="add" required  @click="addTodo">
     </form>
   </div>
 </template>
@@ -19,13 +19,15 @@ import { ref , onMounted } from 'vue';
 
 // data : 
 
-const todoList = ref([]);
+// const todoList = ref([]);
+
 const todoObject = ref({
   id:'',
   text: '',
   from:'' ,
   to: '',
-  createdAt : ''
+  createdAt: '',
+   isCompeleted: false 
 } );
 
 // methids :
@@ -41,29 +43,30 @@ const addTodo = () => {
     text: '',
     from: '',
     to: '',
-    createdAt: ''
+    createdAt: '',
+    isCompeleted : false
   }
 }
 
-//set to local storg :
+// //set to local storg :
 
-const addToLocalSt = () => {
-  localStorage.setItem("todos" , JSON.stringify(todoList.value))
-}
+// const addToLocalSt = () => {
+//   localStorage.setItem("todos" , JSON.stringify(todoList.value))
+// }
 
-// update todoslist :
+// // update todoslist :
 
-const updatLocalStTodos = () => {
-  if (localStorage.getItem("todos")) {
-    todoList.value = JSON.parse(localStorage.getItem("todos"))
-  }
-}
+// const updatLocalStTodos = () => {
+//   if (localStorage.getItem("todos")) {
+//     todoList.value = JSON.parse(localStorage.getItem("todos"))
+//   }
+// }
 
-//Hooks :
+// //Hooks :
 
-onMounted(() => {
-    updatLocalStTodos();
-} )
+// onMounted(() => {
+//     updatLocalStTodos();
+// } )
  
 
 
